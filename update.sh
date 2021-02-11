@@ -19,9 +19,9 @@ NAME=$VALHEIM
 
 #SteamCMD update script
 #######################
-UPDATE_SCRIPT="update_script.conf"
+UPDATE_SCRIPT="valheim_update_script.conf"
 LOCAL_UPDATE_SCRIPT="./config/$UPDATE_SCRIPT"
-REMOTE_UPDATE_SCRIPT="$INSTALL_DIR/$UPDATE_SCRIPT"
+REMOTE_UPDATE_SCRIPT="$REMOTE_DATA/$UPDATE_SCRIPT"
 #this is meant to help with redundancy and make the podman run statement cleaner
 
 podman pull $IMAGE
