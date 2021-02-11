@@ -32,7 +32,7 @@ podman rm $NAME
 #remove the container instance of the server
 #the server files are stored in LOCAL_DATA, so this is not an issue
 
-podman run -it \
+podman run -d \
   --name $NAME \
   -v $LOCAL_DATA:$REMOTE_DATA \
   -v $LOCAL_START_SCRIPT:$REMOTE_START_SCRIPT:ro \
