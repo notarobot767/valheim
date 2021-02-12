@@ -19,13 +19,6 @@ NAME=$VALHEIM
 #we could just use the vars from config.conf, but
   #i prefer to be consistent in my scripts with the words image and name
 
-#SteamCMD update script
-#######################
-UPDATE_SCRIPT="valheim_update_script.conf"
-LOCAL_UPDATE_SCRIPT="./config/$UPDATE_SCRIPT"
-REMOTE_UPDATE_SCRIPT="$REMOTE_DATA/$UPDATE_SCRIPT"
-#this is meant to help with redundancy and make the podman run statement cleaner
-
 podman pull $IMAGE
 #update SteamCMD image prior to using
 #this image updates frequently, so IMO it is best practice to pull latest image of SteamCMD,
