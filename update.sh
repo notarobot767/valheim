@@ -10,11 +10,10 @@
 cd "${0%/*}"
 #change directory relative to script
 
-source ./config.conf
+source ./config/config.conf
 #source variables from config.conf
 
 IMAGE=$STEAM
-NAME=$VALHEIM
 #point name and image to vars from config.conf
 #we could just use the vars from config.conf, but
   #i prefer to be consistent in my scripts with the words image and name

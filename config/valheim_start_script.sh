@@ -1,7 +1,7 @@
 #!/bin/bash
 
-cd "${0%/*}"/valheim
-
+#cd "${0%/*}"/valheim
+cd /app/valheim
 #change directory relative to script
 
 export templdpath=$LD_LIBRARY_PATH

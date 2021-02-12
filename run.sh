@@ -9,24 +9,13 @@
 cd "${0%/*}"
 #change directory relative to script
 
-source ./config.conf
+source ./config/config.conf
 #source variables from config.conf
 
-IMAGE=$UBUNTU
-NAME=$VALHEIM
+IMAGE=$VALHEIM
 #point name and image to vars from config.conf
 #we could just use the vars from config.conf, but
   #i prefer to be consistent in my scripts with the words image and name
-
-#Mouting the start script from local (my machine) to the remote container
-START_SCRIPT="valheim_start_script.sh"
-LOCAL_START_SCRIPT="./config/$START_SCRIPT"
-REMOTE_START_SCRIPT="$REMOTE_DATA/$START_SCRIPT"
-#this is meant to help with redundancy and make the podman run statement cleaner
-
-podman pull $IMAGE
-#pull latest ubuntu image
-#TODO: create a dockerfile for this
 
 podman stop $NAME
 #stop any container instance of the server
@@ -38,10 +27,9 @@ podman rm $NAME
 podman run -d \
   --name $NAME \
   -v $LOCAL_DATA:$REMOTE_DATA \
-  -v $LOCAL_START_SCRIPT:$REMOTE_START_SCRIPT:ro \
   -p $H_PORT:$C_PORT \
   -p $H_PORT:$C_PORT/udp \
-  $IMAGE $REMOTE_START_SCRIPT
+  $IMAGE
 #-d
   #if you make changes are are not sure if the server is running properly, change the -d to -it
   #-d is headless mode, and this way you do not have to keep a terminal window open for the server
