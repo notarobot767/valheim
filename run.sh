@@ -3,8 +3,8 @@
 #Order of operation
 #  cd to directory relative to script
 #  source variables from ./config.conf
-#  pull latest ubuntu image; TODO: make a docker file for this
-#  run the server
+#  stop and remove any instance of container server
+#  run the server from local image generated from ./build.sh
 
 cd "${0%/*}"
 #change directory relative to script
@@ -39,10 +39,8 @@ podman run -d \
 #-v $LOCAL_DATA:$REMOTE_DATA
   #this mounts our local server data folder into the perceived container location.
   #purely out of habbit, i assigned the remote destination to be /app from config.conf
-#-v $LOCAL_START_SCRIPT:$REMOTE_START_SCRIPT:ro
-  #this mounts a file for the steamcmd +runscript file.
-  #again, we could type out the arguments here instead, but i prefer to use a script.
-  #in order to use the script, we have to get the file into the container for
-  #the container OS to find it
-#$IMAGE +runscript $REMOTE_UPDATE_SCRIPT
-  #this calls the Ubuntu image to instanciate a container and then run the start script
+#-p
+  #these are the official listed ports for valheim dedicated server
+  #unclear if this range should be tcp, udp, or both
+#$IMAGE
+  #the local image was built with an entry point to automatically run the start script upon boot
