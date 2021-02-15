@@ -9,7 +9,7 @@
 cd "${0%/*}"
 #change directory relative to script
 
-source ./config/config.conf
+source ./config/config.sh
 #source variables from config.conf
 
 IMAGE=$VALHEIM
@@ -24,7 +24,7 @@ podman rm $NAME
 #remove the container instance of the server
 #the server files are stored in LOCAL_DATA, so this is not an issue
 
-podman run -d \
+podman run -it \
   --name $NAME \
   -v $LOCAL_DATA:$REMOTE_DATA \
   -p $H_PORT:$C_PORT \

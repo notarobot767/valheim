@@ -1,3 +1,5 @@
+#!/bin/bash
+
 NAME="valheim_standalone"
 #name to use for running server container
 
@@ -38,11 +40,11 @@ REMOTE_UPDATE_SCRIPT="/etc/$UPDATE_SCRIPT"
 #SERVER PORTS
 #############
 #ports to forward
-H_PORT="2456-2458"
-#H_PORT="2459-2461" #test
+#H_PORT="2456-2458"
+H_PORT="2459-2461" #test
 #host ports, your host os
-C_PORT=$H_PORT
-#C_PORT="2456-2458" #test
+#C_PORT=$H_PORT
+C_PORT="2456-2458" #test
 #container ports to publish; I kept them the same
 
 #from the documentation I found in 'Valheim Dedicated Server Manual.pdf':

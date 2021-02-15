@@ -1,19 +1,22 @@
 #!/bin/bash
 
+#change these
 NAME="TEST SERVER"
 PORT="2456"
 WORLD="Dedicated"
 PW="password"
+
+#dont change these
 DATA="/app/valheim"
 SAVE_DIR="$DATA/_config"
+APP_ID="892970"
 
-#cd "${0%/*}"/valheim
 cd $DATA
 #change directory to location of game server files
 
 export templdpath=$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=./linux64:$LD_LIBRARY_PATH
-export SteamAppId=892970
+export SteamAppId=$APP_ID
 
 # Tip: Make a local copy of this script to avoid it being overwritten by steam.
 # NOTE: Minimum password length is 5 characters & Password cant be in the server name.

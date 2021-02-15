@@ -10,7 +10,7 @@
 cd "${0%/*}"
 #change directory relative to script
 
-source ./config/config.conf
+source ./config/config.sh
 #source variables from config.conf
 
 IMAGE=$STEAM
