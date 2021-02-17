@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NAME="valheim_standalone"
+NAME="valheim_test"
 #name to use for running server container
 
 #Docker images
@@ -23,7 +23,7 @@ REMOTE_DATA="/app"
 #where in the container to mount the game files
 #if you change this, update force_install_dir variable in config/update_script.conf
 
-LOCAL_DATA="/disk2/valheim_standalone"
+LOCAL_DATA="/disk2/steamcmd_test"
 #where to store your game files
 #IMO it is more practical to mount the game files into a container then to copy them into a image
 

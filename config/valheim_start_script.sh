@@ -1,9 +1,9 @@
 #!/bin/bash
 
 #change these
-NAME="TEST SERVER"
+NAME="TEST_SERVER"
 PORT="2456"
-WORLD="Dedicated"
+WORLD="TEST_WORLD"
 PW="password"
 
 #dont change these

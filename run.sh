@@ -24,10 +24,9 @@ podman rm $NAME
 #remove the container instance of the server
 #the server files are stored in LOCAL_DATA, so this is not an issue
 
-podman run -it \
+podman run -d \
   --name $NAME \
   -v $LOCAL_DATA:$REMOTE_DATA \
-  -p $H_PORT:$C_PORT \
   -p $H_PORT:$C_PORT/udp \
   $IMAGE
 #-d

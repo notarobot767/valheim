@@ -3,7 +3,7 @@
 cd "${0%/*}"
 #change directory relative to script
 
-source ./config/config.conf
+source ./config/config.sh
 
 podman build -f ./config/dockerfile.conf \
         -t $VALHEIM_IMAGE_NAME \
