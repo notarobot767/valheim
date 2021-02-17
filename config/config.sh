@@ -40,13 +40,18 @@ REMOTE_UPDATE_SCRIPT="/etc/$UPDATE_SCRIPT"
 #SERVER PORTS
 #############
 #ports to forward
-#H_PORT="2456-2458"
-H_PORT="2459-2461" #test
+H_PORT="2456-2458"
 #host ports, your host os
-#C_PORT=$H_PORT
-C_PORT="2456-2458" #test
+C_PORT=$H_PORT
 #container ports to publish; I kept them the same
+
+#test purposes
+#H_PORT="2459-2461" #test
+#C_PORT="2456-2458" #test
 
 #from the documentation I found in 'Valheim Dedicated Server Manual.pdf':
   #"The default Port Range that the Server uses is 2456-2458"
   #unclear if this should be tcp, udp, or both
+  #my testing has lead me to beleive this is only UDP
+  #the game is bound to 2456, steam servers at 2467, and unsure about 2458
+  #if connecting through the steam server viewer, use port 2467
