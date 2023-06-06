@@ -1,0 +1,32 @@
+version: "3"
+services:
+  valheim_update:
+    image: steamcmd/steamcmd:ubuntu-22
+    volumes:
+      - $VALHEIM_DATA_DIR:/app
+    command: [
+      "+force_install_dir", "/app",
+      "+login", "anonymous",
+      "+app_update", "896660",
+      "validate",
+      "+quit"
+    ]
+  valheim_srv:
+    build:
+      context: .
+    volumes:
+      - $VALHEIM_DATA_DIR:/app
+    ports:
+      - 2456-2458:2456-2458/udp
+    restart: unless-stopped
+    cap_add:
+      - SYS_NICE
+      #allows the Steam library that Valheim uses to give itself more CPU cycles
+      #Without it you will see a message
+      #Warning: failed to set thread priority
+    command: [
+      "-name", "human server",
+      "-world", "human",
+      "-port", "2456",
+      "-password", "password"
+    ]
