@@ -10,7 +10,7 @@ DIR="/app/data"
 if [ ! -d "$DIR" ]; then
   mkdir $DIR
 fi
-#create worlds folder in /app folder
+#create data folder in /app folder
 #personal preference, avoids another volume mount in yml service
 
 ./valheim_server.x86_64 -nographics -batchmode -savedir $DIR "$@"
