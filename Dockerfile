@@ -5,19 +5,24 @@ ENV TZ="US/Hawaii"
 #https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 RUN ln -fs /usr/share/zoneinfo/$TZ /etc/localtime && \
+  #set local timezone
+  \
   apt-get update && apt-get upgrade -y && apt-get install -y tzdata \
+    #update, upgrade, and set time
+    \
     ca-certificates \
     #necessary for TLS when connecting to steam servers
-    \
+      \
     libatomic1 libpulse-dev libpulse0 && \
-    #from the manual itself
+    #required from the manual itself
   \
   rm -rf /var/lib/apt/lists/*
   #remove apt package cache
 
 WORKDIR /app
+#personal preference, run docker app in the /app folder
 
-ENTRYPOINT ["./start_server.sh"]
+ENTRYPOINT ["./start_server_custom.sh"]
 
 LABEL maintainer="human" \
   org.label-schema.name="Unturned" \
