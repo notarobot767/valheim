@@ -24,6 +24,10 @@ WORKDIR /app
 
 ENTRYPOINT ["./start_server_custom.sh"]
 
+EXPOSE 2456/udp
+EXPOSE 2457/udp
+EXPOSE 2458/udp
+
 LABEL maintainer="human" \
   org.label-schema.name="Unturned" \
   org.label-schema.vendor="OG Networks" \
