@@ -29,4 +29,5 @@ services:
       "-world", "human",
       "-port", "2456",
       "-password", "password"
+      #see pdf manual in server files downloaded from SteamCMD
     ]
